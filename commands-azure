@@ -1,0 +1,9 @@
+sed -i 's/:latest/:$(Version)/g' dotnetapp-deployment.yaml
+
+dotnetapp-deployment.yaml
+
+az aks install-cli
+az aks get-credentials --resource-group mvp-kubernetes-rg-we --name kub-cluster-donet2
+az aks browse --resource-group mvp-kubernetes-rg-we --name kub-cluster-donet2
+
+kubectl port-forward kubernetes-dashboard-5fd84f4858-rskpp 8001:9090 --namespace kube-system
